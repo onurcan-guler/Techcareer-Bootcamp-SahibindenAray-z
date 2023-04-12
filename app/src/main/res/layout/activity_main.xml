@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainAdapter"
+            type="com.example.sahibinden.MainAdapter" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/draw"
+            app:menu="@menu/menu_main"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="sahibinden.com"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="156dp"
+                tools:layout_editor_absoluteY="18dp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <SearchView
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:autofillHints="Kelime veya ilan NO. ile ara"
+                android:iconifiedByDefault="false"
+                android:queryHint="Kelime veya ilan NO. ile ara"
+                app:defaultQueryHint="Kelime veya ilan NO. ile ara"/>
+
+            <ImageView
+                android:id="@+id/search_mag_icon"
+                android:layout_width="24dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/mic" />
+
+            <ImageView
+                android:id="@+id/search_mag_icon1"
+                android:layout_width="24dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/qr_code" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec"
+            android:layout_width="0dp"
+            android:layout_height="541dp"
+            android:adapter="@{mainAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
